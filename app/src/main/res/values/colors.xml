@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorAccent">#ff2bc1ab</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#cccccc</color>
+    <color name="black">#000000</color>
+    <color name="login_view">#2fa881</color>
+    <color name="phone">#c5c5c5</color>
+    <color name="btn_text">#D3D3D3</color>
+    <color name="forget_password">#9A9A9A</color>
+    <color name="regihter_password">#2ea67f</color>
+    <color name="test_head_color">#999999</color>
+    <color name="huise">#cdcdcd</color>
+    <color name="view_line">#C2C2C2</color>
+    <color name="wx_line">#F9F9F9</color>
+    <color name="main_text">#929292</color>
+    <color name="transparent">#00000000</color>
+    <color name="shadow">#cc222222</color>
+    <color name="ask_chiec_text">#999999</color>
+    <color name="picr_tj">#FA5A5D</color>
+    <color name="comm_name">#346195</color>
+    <color name="comm_bottom">#F4F5F6</color>
+    <color name="circle_name">#151616</color>
+    <color name="circle_title">#404040</color>
+    <color name="circle_context">#606263</color>
+    <color name="centen_bj">#F2F4F7</color>
+    <color name="centen_text">#707070</color>
+
+
+</resources>
