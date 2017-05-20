@@ -1,7 +1,5 @@
 package www.rxfamilyuser.com.coom.drycargo.netcontrol;
 
-import java.util.Map;
-
 import www.rxfamilyuser.com.network.RequestCallBack;
 
 /**
@@ -10,6 +8,12 @@ import www.rxfamilyuser.com.network.RequestCallBack;
 
 public interface IDryReuseControl {
 
-
-    void getDryData(RequestCallBack callBack, Map<String, Integer> map, int tag,String name);
+    /**
+     *
+     * @param callBack
+     * @param o
+     * @param tag
+     * @param name
+     */
+    void getDryData(RequestCallBack callBack, Object o, int tag, String name);
 }

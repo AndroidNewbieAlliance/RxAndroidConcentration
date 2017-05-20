@@ -1,7 +1,6 @@
 package www.rxfamilyuser.com.coom.Login.netcontrol;
 
-import java.util.Map;
-
+import www.rxfamilyuser.com.coom.Login.bean.LoginJson;
 import www.rxfamilyuser.com.network.RequestCallBack;
 
 /**
@@ -9,11 +8,13 @@ import www.rxfamilyuser.com.network.RequestCallBack;
  */
 
 public interface ILoginControl {
+
     /**
-     * 注册
+     * 登录
      * @param callBack
-     * @param map
+     * @param loginJson
+     * @param sLoinMethodName
      * @param tag
      */
-    void login(RequestCallBack callBack, Map<String, String> map,int tag);
+    void login(RequestCallBack callBack, LoginJson loginJson, String sLoinMethodName, int tag);
 }

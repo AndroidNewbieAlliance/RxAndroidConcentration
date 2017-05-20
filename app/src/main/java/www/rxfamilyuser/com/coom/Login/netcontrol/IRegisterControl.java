@@ -2,6 +2,8 @@ package www.rxfamilyuser.com.coom.Login.netcontrol;
 
 import java.util.Map;
 
+import www.rxfamilyuser.com.coom.Login.bean.FindPassWordJson;
+import www.rxfamilyuser.com.coom.Login.bean.RegisterJson;
 import www.rxfamilyuser.com.network.RequestCallBack;
 
 /**
@@ -9,22 +11,23 @@ import www.rxfamilyuser.com.network.RequestCallBack;
  */
 
 public interface IRegisterControl{
+
     /**
      * 注册
-     *
-     * @param callBack 回调
-     * @param map      参数
+     * @param callBack
+     * @param registerJson
+     * @param sRegisterMethodName
      * @param tag
      */
-    void register(RequestCallBack callBack, Map<String, String> map, int tag);
+    void register(RequestCallBack callBack, RegisterJson registerJson, String sRegisterMethodName, int tag);
+
 
     /**
      * 找回密码
-     *
-     * @param callBack 回调
-     * @param map      参数
+     * @param callBack
+     * @param findPassWordJson
+     * @param sFindPassWordMethodName
      * @param tag
      */
-    void findPassWord(RequestCallBack callBack, Map<String, String> map, int tag);
-
+    void findPassWord(RequestCallBack callBack, FindPassWordJson findPassWordJson, String sFindPassWordMethodName, int tag);
 }

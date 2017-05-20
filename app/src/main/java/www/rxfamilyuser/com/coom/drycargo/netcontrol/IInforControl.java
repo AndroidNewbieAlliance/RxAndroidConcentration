@@ -1,7 +1,6 @@
 package www.rxfamilyuser.com.coom.drycargo.netcontrol;
 
-import java.util.Map;
-
+import www.rxfamilyuser.com.coom.drycargo.bean.InforCommentJson;
 import www.rxfamilyuser.com.network.RequestCallBack;
 
 /**
@@ -10,7 +9,5 @@ import www.rxfamilyuser.com.network.RequestCallBack;
 
 public interface IInforControl {
 
-    void findExpert(RequestCallBack callBack, Map<String, Integer> map, int tag,String name);
-
-    void getCommentData(RequestCallBack callBack, Map<String, Integer> map, int i,String name);
+    void getCommentData(RequestCallBack callBack, InforCommentJson inforCommentJson, String sMethodName,int tag);
 }

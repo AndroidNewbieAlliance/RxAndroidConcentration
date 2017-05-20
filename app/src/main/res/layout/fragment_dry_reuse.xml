@@ -32,9 +32,9 @@
                     app:item="@{model.mLayoutId}"></com.jcodecraeer.xrecyclerview.XRecyclerView>
 
 
+
             </FrameLayout>
         </android.support.v4.widget.SwipeRefreshLayout>
-
 
     </LinearLayout>
 </layout>

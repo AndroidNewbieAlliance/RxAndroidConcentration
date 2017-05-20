@@ -2,15 +2,16 @@ package www.rxfamilyuser.com.network.request;
 
 import android.support.annotation.NonNull;
 
-import java.util.Map;
-
 import io.reactivex.Observable;
 import www.rxfamilyuser.com.base.BaseApplication;
+import www.rxfamilyuser.com.coom.Login.bean.FindPassWordJson;
+import www.rxfamilyuser.com.coom.Login.bean.LoginJson;
+import www.rxfamilyuser.com.coom.Login.bean.RegisterJson;
 import www.rxfamilyuser.com.coom.Login.bean.UserBean;
-import www.rxfamilyuser.com.coom.circle.Bean.CircleBean;
-import www.rxfamilyuser.com.coom.drycargo.bean.HomeBean;
+import www.rxfamilyuser.com.coom.drycargo.bean.DryReuseBean;
+import www.rxfamilyuser.com.coom.drycargo.bean.DryReuseJson;
 import www.rxfamilyuser.com.coom.drycargo.bean.InforCommentBean;
-import www.rxfamilyuser.com.coom.drycargo.bean.JokeListBean;
+import www.rxfamilyuser.com.coom.drycargo.bean.InforCommentJson;
 import www.rxfamilyuser.com.coom.drycargo.bean.TitleBean;
 import www.rxfamilyuser.com.coom.find.bean.MessageBean;
 import www.rxfamilyuser.com.network.RetrofitManager;
@@ -33,6 +34,7 @@ public class HttpRequestImpl implements IHttpRequest {
         return httpRequest;
     }
 
+
     /**
      * 根据网络状况获取缓存的策略
      */
@@ -42,57 +44,43 @@ public class HttpRequestImpl implements IHttpRequest {
     }
 
     @Override
-    public Observable<UserBean> register(Map<String, String> map) {
-        return RetrofitManager.getInstance().getAppService().register(getCacheControl(), map);
+    public Observable<TitleBean> getTitle() {
+        return RetrofitManager.getInstance().getAppService().getTitle(getCacheControl());
+    }
+
+    public Observable<DryReuseBean> articleAll(Object object) {
+
+        return RetrofitManager.getInstance().getAppService().articleAll(getCacheControl(), (DryReuseJson) object);
     }
 
     @Override
-    public Observable<UserBean> findPassWord(Map<String, String> map) {
-        return RetrofitManager.getInstance().getAppService().findPassWord(getCacheControl(), map);
+    public Observable<MessageBean> getMessageData() {
+        return RetrofitManager.getInstance().getAppService().getMessageData(getCacheControl());
+
     }
 
     @Override
-    public Observable<UserBean> login(Map<String, String> map) {
-        return RetrofitManager.getInstance().getAppService().login(getCacheControl(), map);
+    public Observable<InforCommentBean> getInforComment(Object object) {
+        return  RetrofitManager.getInstance().getAppService().getInforComment(getCacheControl(), (InforCommentJson) object);
     }
 
     @Override
-    public Observable<HomeBean> infor(Map<String, Integer> map) {
-        return RetrofitManager.getInstance().getAppService().infor(getCacheControl(), map);
-    }
-
-
-    @Override
-    public Observable<TitleBean> getTitle(Map<String, Integer> map) {
-        return RetrofitManager.getInstance().getAppService().getTitle(getCacheControl(), map);
-    }
-
-
-    @Override
-    public Observable<HomeBean.DataBean.ExpertBean> findExertId(Map<String, Integer> map) {
-        return RetrofitManager.getInstance().getAppService().findExertId(getCacheControl(), map);
+    public Observable<UserBean> login(Object object) {
+        return RetrofitManager.getInstance().getAppService().login(getCacheControl(), (LoginJson)object);
     }
 
     @Override
-    public Observable<InforCommentBean> getCommentData(Map<String, Integer> map) {
-        return RetrofitManager.getInstance().getAppService().getCommentData(getCacheControl(), map);
+    public Observable<UserBean> register(Object object) {
+        return RetrofitManager.getInstance().getAppService().register(getCacheControl(), (RegisterJson) object);
     }
 
     @Override
-    public Observable<JokeListBean> getJokeCommentData(Map<String, Integer> map) {
-        return RetrofitManager.getInstance().getAppService().getJokeCommentData(getCacheControl(), map);
+    public Observable<UserBean> findPassWord(Object object) {
+        return RetrofitManager.getInstance().getAppService().findPassWord(getCacheControl(), (FindPassWordJson)object);
     }
 
-    @Override
-    public Observable<CircleBean> getInvitationData(Map<String, Integer> map) {
-        return RetrofitManager.getInstance().getAppService().getInvitationData(getCacheControl(), map);
-    }
 
-    @Override
-    public Observable<MessageBean> getMessageData(Map<String, Integer> map) {
 
-        return RetrofitManager.getInstance().getAppService().getMessageData(getCacheControl(), map);
 
-    }
 
 }

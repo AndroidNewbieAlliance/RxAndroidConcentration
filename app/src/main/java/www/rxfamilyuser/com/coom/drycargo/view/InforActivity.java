@@ -18,8 +18,12 @@ import www.rxfamilyuser.com.coom.drycargo.viewmodel.InforModel;
 import www.rxfamilyuser.com.databinding.ActivityInforBinding;
 import www.rxfamilyuser.com.util.AnimationUtil;
 
+
 /**
  * 资讯详情页
+ * <p 根据type>
+ * 修改时间:
+ * 修改内容:
  */
 public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel> implements View.OnClickListener {
 
@@ -27,7 +31,7 @@ public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel
     private int mPage = 1;
     private String mInforHtml = "";
     private int mInforId = 0;
-    private String mTitle;
+    private int mType = 1;
 
     @Override
     public int getLayoutId() {
@@ -39,11 +43,11 @@ public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel
 
         mInforId = getIntent().getIntExtra("infor_id", 0);
         mInforHtml = getIntent().getStringExtra("infor_html");
-        mTitle = getIntent().getStringExtra("title");
+        mType = getIntent().getIntExtra("infor_type", 0);
         mBinder.setModel(mModel);
 
         //设置ToolBar
-        mBinder.toolbar.setTitle(mTitle);
+        mBinder.toolbar.setTitle(getResources().getString(R.string.infor));
         setSupportActionBar(mBinder.toolbar);//替换系统的actionBar
         mBinder.toolbar.setOnMenuItemClickListener(onMenuItemClick);
 
@@ -54,6 +58,7 @@ public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel
         setListener();
         setRecyclerViewInit();
     }
+
 
     @Override
     public void onClick(View v) {
@@ -105,7 +110,7 @@ public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel
             @Override
             public void run() {
                 mBinder.srLayout.setRefreshing(true);
-                mModel.getCommentData(mInforId, mPage);
+                mModel.getCommentData(mInforId, 1);
             }
         });
 
@@ -114,7 +119,7 @@ public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel
             public void onRefresh() {
                 //网络请求
                 mPage = 1;
-                mModel.getCommentData(mInforId, mPage);
+//                mModel.getCommentData(mInforId, mPage);
             }
         });
     }
@@ -142,6 +147,7 @@ public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel
         mBinder.ivComm.setOnClickListener(this);
         mBinder.ivPlaytour.setOnClickListener(this);
         mBinder.tvWriteComm.setOnClickListener(this);
+
     }
 
     private Toolbar.OnMenuItemClickListener onMenuItemClick = new Toolbar.OnMenuItemClickListener() {
@@ -161,10 +167,7 @@ public class InforActivity extends BaseActivity<ActivityInforBinding, InforModel
         }
     };
 
-
     public int getmPage() {
         return mPage;
     }
-
-
 }

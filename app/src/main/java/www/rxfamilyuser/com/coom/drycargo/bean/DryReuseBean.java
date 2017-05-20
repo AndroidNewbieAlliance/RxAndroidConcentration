@@ -2,17 +2,19 @@ package www.rxfamilyuser.com.coom.drycargo.bean;
 
 import java.util.List;
 
+import www.rxfamilyuser.com.base.BaseBean;
+
 /**
  * Created by ali on 2017/3/3.
  */
 
-public class DryReuseBean {
+public class DryReuseBean extends BaseBean {
 
 
     /**
-     * code : 0
-     * message : 数据查找成功~~
-     * data : [{"id":1,"title":"这是一条测试数据","time":"2017-03-13 22:02:12.0","lookNum":1,"commenNum":0,"img":"http://c.hiphotos.baidu.com/image/h%3D200/sign=0545b39aa9345982da8ae2923cf5310b/d009b3de9c82d1585e277e5f840a19d8bd3e42b2.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":4,"title":"ni","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":5,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":6,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":7,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":8,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":9,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":10,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":11,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1},{"id":12,"title":"测试数据","time":"2017-03-02 22:05:01.0","lookNum":100,"commenNum":0,"img":"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=3dc39862a0c27d1eba263cc42bd7adaf/b21bb051f8198618df86c5424eed2e738ad4e637.jpg","html":"http://120.27.33.15:3000/nes.html","type":1}]
+     * code : 1
+     * message : 数据查询成功~~
+     * data : [{"infor_id":1,"infor_from":"csdn","infor_type":"1","infor_title":"测试数据测试数据","infor_content":"测试数据测试数据测测试数据测试数据测测试数据测试数据测测试数据测试数据测测试数据测试数据测","infor_time":"2017-04-25 22:12","infor_com_num":"22","infor_praise_num":"11","infor_html":"http://blog.csdn.net/mattdong0106/article/details/51971398","infor_video":null,"infor_img_one":null,"infor_img_two":null,"infor_img_three":null,"infor_user_id":null,"user_photo":null,"user_name":null},{"infor_id":2,"infor_from":"掘进","infor_type":"2","infor_title":"测试数据测试数据","infor_content":"测试数据测试数据测试数据测试数据测试数据测试数据","infor_time":"2017-04-25 22:12","infor_com_num":"22","infor_praise_num":"33","infor_html":"http://blog.csdn.net/mattdong0106/article/details/51971398","infor_video":null,"infor_img_one":"http://blog.csdn.net/mattdong0106/article/details/51971398","infor_img_two":null,"infor_img_three":null,"infor_user_id":null,"user_photo":null,"user_name":null}]
      */
 
     private int code;
@@ -45,87 +47,176 @@ public class DryReuseBean {
 
     public static class DataBean {
         /**
-         * id : 1
-         * title : 这是一条测试数据
-         * time : 2017-03-13 22:02:12.0
-         * lookNum : 1
-         * commenNum : 0
-         * img : http://c.hiphotos.baidu.com/image/h%3D200/sign=0545b39aa9345982da8ae2923cf5310b/d009b3de9c82d1585e277e5f840a19d8bd3e42b2.jpg
-         * html : http://120.27.33.15:3000/nes.html
-         * type : 1
+         * infor_id : 1
+         * infor_from : csdn
+         * infor_type : 1
+         * infor_title : 测试数据测试数据
+         * infor_content : 测试数据测试数据测测试数据测试数据测测试数据测试数据测测试数据测试数据测测试数据测试数据测
+         * infor_time : 2017-04-25 22:12
+         * infor_com_num : 22
+         * infor_praise_num : 11
+         * infor_html : http://blog.csdn.net/mattdong0106/article/details/51971398
+         * infor_video : null
+         * infor_img_one : null
+         * infor_img_two : null
+         * infor_img_three : null
+         * infor_user_id : null
+         * user_photo : null
+         * user_name : null
          */
 
-        private int id;
-        private String title;
-        private String time;
-        private String lookNum;
-        private String commenNum;
-        private String img;
-        private String html;
-        private int type;
+        private int infor_id;
+        private String infor_from;
+        private int infor_type;
+        private String infor_title;
+        private String infor_content;
+        private String infor_time;
+        private String infor_com_num;
+        private String infor_praise_num;
+        private String infor_html;
+        private String infor_video;
+        private String infor_img_one;
+        private String infor_img_two;
+        private String infor_img_three;
+        private String infor_user_id;
+        private String user_photo;
+        private String user_name;
+        private int title_type;
 
-        public int getId() {
-            return id;
+        public int getTitle_type() {
+            return title_type;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setTitle_type(int title_type) {
+            this.title_type = title_type;
         }
 
-        public String getTitle() {
-            return title;
+        public int getInfor_id() {
+            return infor_id;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
+        public void setInfor_id(int infor_id) {
+            this.infor_id = infor_id;
         }
 
-        public String getTime() {
-            return time;
+        public String getInfor_from() {
+            return infor_from;
         }
 
-        public void setTime(String time) {
-            this.time = time;
+        public void setInfor_from(String infor_from) {
+            this.infor_from = infor_from;
         }
 
-        public String getLookNum() {
-            return lookNum;
+        public int getInfor_type() {
+            return infor_type;
         }
 
-        public void setLookNum(String lookNum) {
-            this.lookNum = lookNum;
+        public void setInfor_type(int infor_type) {
+            this.infor_type = infor_type;
         }
 
-        public String getCommenNum() {
-            return commenNum;
+        public String getInfor_title() {
+            return infor_title;
         }
 
-        public void setCommenNum(String commenNum) {
-            this.commenNum = commenNum;
+        public void setInfor_title(String infor_title) {
+            this.infor_title = infor_title;
         }
 
-        public String getImg() {
-            return img;
+        public String getInfor_content() {
+            return infor_content;
         }
 
-        public void setImg(String img) {
-            this.img = img;
+        public void setInfor_content(String infor_content) {
+            this.infor_content = infor_content;
         }
 
-        public String getHtml() {
-            return html;
+        public String getInfor_time() {
+            return infor_time;
         }
 
-        public void setHtml(String html) {
-            this.html = html;
+        public void setInfor_time(String infor_time) {
+            this.infor_time = infor_time;
         }
 
-        public int getType() {
-            return type;
+        public String getInfor_com_num() {
+            return infor_com_num;
         }
 
-        public void setType(int type) {
-            this.type = type;
+        public void setInfor_com_num(String infor_com_num) {
+            this.infor_com_num = infor_com_num;
+        }
+
+        public String getInfor_praise_num() {
+            return infor_praise_num;
+        }
+
+        public void setInfor_praise_num(String infor_praise_num) {
+            this.infor_praise_num = infor_praise_num;
+        }
+
+        public String getInfor_html() {
+            return infor_html;
+        }
+
+        public void setInfor_html(String infor_html) {
+            this.infor_html = infor_html;
+        }
+
+        public String getInfor_video() {
+            return infor_video;
+        }
+
+        public void setInfor_video(String infor_video) {
+            this.infor_video = infor_video;
+        }
+
+        public String getInfor_img_one() {
+            return infor_img_one;
+        }
+
+        public void setInfor_img_one(String infor_img_one) {
+            this.infor_img_one = infor_img_one;
+        }
+
+        public String getInfor_img_two() {
+            return infor_img_two;
+        }
+
+        public void setInfor_img_two(String infor_img_two) {
+            this.infor_img_two = infor_img_two;
+        }
+
+        public String getInfor_img_three() {
+            return infor_img_three;
+        }
+
+        public void setInfor_img_three(String infor_img_three) {
+            this.infor_img_three = infor_img_three;
+        }
+
+        public String getInfor_user_id() {
+            return infor_user_id;
+        }
+
+        public void setInfor_user_id(String infor_user_id) {
+            this.infor_user_id = infor_user_id;
+        }
+
+        public String getUser_photo() {
+            return user_photo;
+        }
+
+        public void setUser_photo(String user_photo) {
+            this.user_photo = user_photo;
+        }
+
+        public String getUser_name() {
+            return user_name;
+        }
+
+        public void setUser_name(String user_name) {
+            this.user_name = user_name;
         }
     }
 }

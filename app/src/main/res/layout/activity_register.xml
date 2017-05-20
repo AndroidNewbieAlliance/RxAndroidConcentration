@@ -66,7 +66,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="664px"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10px"
                         android:orientation="vertical">
 
@@ -74,7 +74,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="100px"
-                            android:layout_marginTop="90px"
+                            android:layout_marginTop="70px"
                             android:orientation="horizontal"
                             android:paddingLeft="60px"
                             android:paddingRight="60px">
@@ -197,7 +197,7 @@
                         <Button
                             android:id="@+id/btn_register"
                             android:layout_width="300px"
-                            android:layout_height="90px"
+                            android:layout_height="80px"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="20px"
                             android:background="@drawable/register_btn_bj_shape"

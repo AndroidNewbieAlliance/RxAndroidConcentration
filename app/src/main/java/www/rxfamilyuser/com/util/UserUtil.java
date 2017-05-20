@@ -21,9 +21,9 @@ public class UserUtil {
         return spUtils.getString("user_password");
     }
 
-    public static String getUserId() {
+    public static int getUserId() {
         SPUtils spUtils = new SPUtils(SPkeyConstantUtil.SSP_KEY);
-        return spUtils.getString("user_id");
+        return spUtils.getInt("user_id");
     }
 
     public static String getUserPhoto() {

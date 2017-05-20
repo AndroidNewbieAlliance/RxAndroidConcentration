@@ -1,7 +1,5 @@
 package www.rxfamilyuser.com.coom.find.netcontrol;
 
-import java.util.Map;
-
 import www.rxfamilyuser.com.network.RequestCallBack;
 
 /**
@@ -9,5 +7,5 @@ import www.rxfamilyuser.com.network.RequestCallBack;
  */
 
 public interface IMessageControl {
-    void getMessageData(RequestCallBack requestCallBack, Map<String, Integer> map, int tag,String name);
+    void getMessageData(RequestCallBack requestCallBack ,int tag);
 }

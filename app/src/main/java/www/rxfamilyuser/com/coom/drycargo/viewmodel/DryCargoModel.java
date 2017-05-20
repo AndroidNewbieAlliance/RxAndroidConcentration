@@ -3,9 +3,7 @@ package www.rxfamilyuser.com.coom.drycargo.viewmodel;
 import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import www.rxfamilyuser.com.base.BaseModel;
 import www.rxfamilyuser.com.coom.Login.adapter.MainViewPagerAdapter;
@@ -16,9 +14,11 @@ import www.rxfamilyuser.com.coom.drycargo.view.DryReuseFragment;
 import www.rxfamilyuser.com.databinding.FragmentDryCargoBinding;
 
 /**
- * Created by ali on 2017/2/23.
+ * 文章首页viewmodel
+ * <p>
+ * 修改时间:
+ * 修改内容:
  */
-
 public class DryCargoModel extends BaseModel<FragmentDryCargoBinding, DryCargoControlImpl> {
     @Override
     public void onBeforeRequest(int tag) {
@@ -41,8 +41,7 @@ public class DryCargoModel extends BaseModel<FragmentDryCargoBinding, DryCargoCo
      * 获取标题
      */
     public void getTitle() {
-        Map<String, Integer> map = new HashMap<>();
-        mControl.getTitile(this, map, 1);
+        mControl.getTitile(this, 1);
     }
 
     /**
@@ -54,7 +53,7 @@ public class DryCargoModel extends BaseModel<FragmentDryCargoBinding, DryCargoCo
         ArrayList<Fragment> fragments = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            fragments.add(new DryReuseFragment(1));
+            fragments.add(new DryReuseFragment(i + 1));
         }
         return fragments;
     }

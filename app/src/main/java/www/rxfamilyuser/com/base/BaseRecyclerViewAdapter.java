@@ -34,7 +34,7 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
     public int mItemLayout;
 
     @BindingAdapter({"app:adapter", "app:data", "app:item"})
-    public static <T> void setListBinding(final XRecyclerView view, final BaseRecyclerViewAdapter<T> tTextadaap, final List<T> data, final int item) {
+    public static <T> void  setListBinding(final XRecyclerView view, final BaseRecyclerViewAdapter<T> tTextadaap, final List<T> data, final int item) {
         if (view.getTag() == null) {
             view.setAdapter(tTextadaap);
             view.setTag(tTextadaap);

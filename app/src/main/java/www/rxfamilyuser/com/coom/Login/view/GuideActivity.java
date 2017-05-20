@@ -17,7 +17,14 @@ import www.rxfamilyuser.com.base.BaseActivity;
 import www.rxfamilyuser.com.coom.Login.adapter.GuideAdapter;
 import www.rxfamilyuser.com.coom.Login.viewmodel.GuildeModel;
 import www.rxfamilyuser.com.databinding.ActivityGuideBinding;
+import www.rxfamilyuser.com.util.PhoneUtil;
 
+/**
+ * 程序引导页
+ * <p>
+ * 修改时间:
+ * 修改内容:
+ */
 public class GuideActivity extends BaseActivity<ActivityGuideBinding, GuildeModel> {
 
     // 引导页图片资源
@@ -41,6 +48,7 @@ public class GuideActivity extends BaseActivity<ActivityGuideBinding, GuildeMode
                 .setSwipeBackEnable(false);
         SwipeBackHelper.getCurrentPage(this).setDisallowInterceptTouchEvent(true);
 
+        PhoneUtil.getPhoneDeviceId(this);
         mViews = new ArrayList<View>();
         // 初始化引导页视图列表
         for (int i = 0; i < pics.length; i++) {

@@ -13,13 +13,18 @@ import www.rxfamilyuser.com.coom.Login.viewmodel.StartModel;
 import www.rxfamilyuser.com.databinding.ActivityStartBinding;
 import www.rxfamilyuser.com.util.SPkeyConstantUtil;
 
+/**
+ * 程序入口界面
+ * <p SPkeyConstantUtil.SInitialize 新版本安装的时候要把sp保存的设置为true,
+ * 新版本进入继续进入引导页>
+ * 修改时间:
+ * 修改内容:
+ */
 public class StartActivity extends BaseActivity<ActivityStartBinding, StartModel> {
 
 
     @Override
     public int getLayoutId() {
-
-
         return R.layout.activity_start;
     }
 
