@@ -18,8 +18,12 @@ import www.rxfamilyuser.com.databinding.ActivityRegisterBinding;
 import www.rxfamilyuser.com.util.ConstantUtil;
 import www.rxfamilyuser.com.util.TitleBuilderUtils;
 
+
 /**
  * 注册和找回密码
+ * <p 公共一个界面,通过传过来的tag区分>
+ * 修改时间:
+ * 修改内容:
  */
 public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, RegisterModel> {
     /**

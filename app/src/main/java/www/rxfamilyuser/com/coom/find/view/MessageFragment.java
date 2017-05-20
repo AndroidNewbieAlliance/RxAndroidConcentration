@@ -11,6 +11,9 @@ import www.rxfamilyuser.com.util.XRecyclerviewUtis;
 
 /**
  * 消息
+ * <p>
+ * 修改时间:
+ * 修改内容:
  */
 public class MessageFragment extends BaseFragment<FragmentMessageBinding, MessageViewModel> {
 

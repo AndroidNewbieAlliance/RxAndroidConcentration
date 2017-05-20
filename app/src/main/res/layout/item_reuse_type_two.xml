@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="DataBean"
+            type="www.rxfamilyuser.com.coom.drycargo.bean.DryReuseBean.DataBean"></variable>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="30px"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20px"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="20px"
+                    android:id="@+id/tv_context"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:text="@{DataBean.infor_title}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_px34" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{DataBean.infor_from}"
+                        android:textColor="@color/reuse_text"
+                        android:textSize="@dimen/_px30" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10px"
+                        android:text="@{DataBean.infor_com_num}"
+                        android:textColor="@color/reuse_text"
+                        android:textSize="@dimen/_px30" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="评论"
+                        android:textColor="@color/reuse_text"
+                        android:textSize="@dimen/_px30" />
+
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10px"
+                        android:text="@{DataBean.infor_time}"
+                        android:textColor="@color/reuse_text"
+                        android:textSize="@dimen/_px30" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_no_interest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="20px"
+                            android:src="@mipmap/nointerest" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="140px"
+                android:layout_height="170px"
+                android:scaleType="center"
+                android:src="@mipmap/image_def"
+                app:imageUrl="@{DataBean.infor_img_one}" />
+
+        </LinearLayout>
+
+
+        <View
+            style="@style/view_line"
+            android:layout_marginTop="30px" />
+
+
+    </LinearLayout>
+</layout>

@@ -1,7 +1,6 @@
 package www.rxfamilyuser.com.base;
 
 import java.lang.reflect.Method;
-import java.util.Map;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -33,18 +32,18 @@ public class BaseNetControl implements IBaseControl {
      * 普通post请求
      *
      * @param callBack   回调
-     * @param map        参数
+     * @param object     请求参数(json格式)
      * @param tag        请求tag
-     * @param methodName 方法名字
+     * @param methodName appservice执行方法(反射)
      */
-    public void postDataMap(final RequestCallBack callBack, Map<String, Integer> map, final int tag, String methodName) {
-        callBack.beforeRequest(tag);
+    public void postDataObject(final RequestCallBack callBack, Object object, final int tag, String methodName) {
 
+        callBack.beforeRequest(tag);
         HttpRequestImpl httpRequest = HttpRequestImpl.getInstance();
         Class<? extends HttpRequestImpl> httpClass = httpRequest.getClass();
         try {
-            Method httpRequestdMethod = httpClass.getDeclaredMethod(methodName, Map.class);
-            Observable<Object> invitationData = (Observable<Object>) httpRequestdMethod.invoke(httpRequest, map);
+            Method httpRequestdMethod = httpClass.getDeclaredMethod(methodName, Object.class);
+            Observable<Object> invitationData = (Observable<Object>) httpRequestdMethod.invoke(httpRequest, object);
             invitationData.subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<Object>() {

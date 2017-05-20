@@ -5,9 +5,6 @@ import android.databinding.ObservableInt;
 
 import com.blankj.utilcode.utils.ToastUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import www.rxfamilyuser.com.R;
 import www.rxfamilyuser.com.base.BaseModel;
 import www.rxfamilyuser.com.coom.circle.Bean.CircleBean;
@@ -67,8 +64,6 @@ public class CircleViewModel extends BaseModel<FragmentCircleBinding, CircleCont
     }
 
     public void getInvitationListData(int page) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
-        map.put("page", page);
-        mControl.getInvitationListData(this, map, 1, "getInvitationData");
+
     }
 }

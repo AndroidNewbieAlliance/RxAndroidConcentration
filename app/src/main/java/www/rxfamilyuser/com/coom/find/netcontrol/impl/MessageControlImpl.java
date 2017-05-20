@@ -1,7 +1,5 @@
 package www.rxfamilyuser.com.coom.find.netcontrol.impl;
 
-import java.util.Map;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -19,8 +17,31 @@ import www.rxfamilyuser.com.network.request.HttpRequestImpl;
 public class MessageControlImpl extends BaseNetControl implements IMessageControl {
 
     @Override
-    public void getMessageData(final RequestCallBack callBack, Map<String, Integer> map, final int tag,String name) {
-        postDataMap(callBack, map, tag, name);
+    public void getMessageData(final RequestCallBack callBack, final int tag) {
+        HttpRequestImpl.getInstance()
+                .getMessageData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<MessageBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        mDisposable = d;
+                    }
 
+                    @Override
+                    public void onNext(MessageBean value) {
+                        callBack.success(value,tag);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callBack.error(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }

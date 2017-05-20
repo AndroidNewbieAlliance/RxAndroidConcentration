@@ -14,13 +14,13 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
-        <android.support.v4.view.ViewPager
+        <www.rxfamilyuser.com.widget.NoScrollViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-        </android.support.v4.view.ViewPager>
+        </www.rxfamilyuser.com.widget.NoScrollViewPager>
 
         <View style="@style/view_line" />
 
@@ -42,6 +42,11 @@
                 android:id="@+id/rb_live"
                 style="@style/main_button_style"
                 android:drawableTop="@drawable/radiobutton_cir_selector" />
+
+            <RadioButton
+                android:id="@+id/rb_weekly"
+                style="@style/main_button_style"
+                android:drawableTop="@drawable/radiobutton_weekly_selector" />
 
             <RadioButton
                 android:id="@+id/rb_center"

@@ -12,10 +12,15 @@ import www.rxfamilyuser.com.coom.Login.viewmodel.MainModel;
 import www.rxfamilyuser.com.databinding.ActivityMainBinding;
 import www.rxfamilyuser.com.util.AppManagerUtils;
 
+/**
+ * 主页界面
+ * <p 承载几个主页的activity,RadioGroup+ViewPager实现>
+ * 修改时间:2017.4.27 14:12
+ * 修改内容:添加周刊主页
+ */
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainModel> implements RadioGroup.OnCheckedChangeListener {
     //返回键点击时间
     private long mExitTime = 0;
-
 
     @Override
     public int getLayoutId() {
@@ -25,10 +30,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainModel> i
     @Override
     public void initView() {
 
+        //设置右滑不finsh界面
         SwipeBackHelper.getCurrentPage(this)
                 .setSwipeBackEnable(false);
         SwipeBackHelper.getCurrentPage(this).setDisallowInterceptTouchEvent(true);
-
 
         mBinder.setMain(mModel);
 
@@ -37,7 +42,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainModel> i
         mBinder.rg.setOnCheckedChangeListener(this);
 
 //        mBinder.viewPager.addOnPageChangeListener(mChListener);
-
     }
 
     @Override
@@ -60,11 +64,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainModel> i
             case R.id.rb_live:
                 mModel.setCurrentItem(1);
                 break;
-            case R.id.rb_center:
+            case R.id.rb_weekly:
                 mModel.setCurrentItem(2);
                 break;
-            case R.id.rb_my:
+            case R.id.rb_center:
                 mModel.setCurrentItem(3);
+                break;
+            case R.id.rb_my:
+                mModel.setCurrentItem(4);
                 break;
         }
     }
@@ -83,7 +90,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainModel> i
     }
 
     /**
-     * 显示引导图
+     * 显示引导图,后期加上
      */
     private void setGuideView() {
 

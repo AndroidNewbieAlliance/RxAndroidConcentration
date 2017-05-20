@@ -12,7 +12,16 @@ import www.rxfamilyuser.com.databinding.ActivityLoginBinding;
 import www.rxfamilyuser.com.util.SPkeyConstantUtil;
 import www.rxfamilyuser.com.util.TitleBuilderUtils;
 
+/**
+ * 用户登录
+ * <p 通过tag值跳转到注册/找回密码>
+ * 修改时间:
+ * 修改内容:
+ */
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginModel> {
+
+    private static final int sRegisTag = 1;//注册
+    private static final int sFindPasswordTag = 2;//找回密码
 
     @Override
     public int getLayoutId() {
@@ -48,12 +57,12 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginModel
 
     //注册
     public void btnRegister(View view) {
-        mModel.intentRegis(1);
+        mModel.intentRegis(sRegisTag);
     }
 
     //找回密码
     public void btnFindPassword(View view) {
-        mModel.intentRegis(2);
+        mModel.intentRegis(sFindPasswordTag);
     }
 
     //QQ

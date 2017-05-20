@@ -6,99 +6,92 @@
 
         <variable
             name="DataBean"
-            type="www.rxfamilyuser.com.coom.drycargo.bean.HomeBean.DataBean"></variable>
+            type="www.rxfamilyuser.com.coom.drycargo.bean.DryReuseBean.DataBean"></variable>
     </data>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_from"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20px"
-            android:layout_marginTop="15px"
-            android:text="来自:资讯"
-            android:textColor="@color/shadow"
-            android:textSize="@dimen/_px30" />
 
         <TextView
             android:id="@+id/tv_context"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_from"
-            android:layout_marginBottom="10px"
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:layout_marginTop="25px"
-            android:layout_toLeftOf="@+id/iv_photo"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="30px"
             android:ellipsize="end"
-            android:lines="2"
-            android:text="@{DataBean.inforBean.infor_content}"
-            android:textColor="@color/shadow" />
+            android:text="@{DataBean.infor_title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_px34" />
 
-        <ImageView
-            android:transitionName="image_animation"
-            android:id="@+id/iv_photo"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_alignParentRight="true"
-            android:layout_margin="20px"
-            android:scaleType="center"
-            android:src="@mipmap/image_def"
-            app:imageUrl="@{DataBean.inforBean.infor_img}" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_context"
-            android:layout_marginLeft="20px"
-            android:layout_marginTop="20px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="15px"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{DataBean.inforBean.infor_commentNum}"
-                android:textColor="@color/shadow" />
+                android:text="@{DataBean.infor_from}"
+                android:textColor="@color/reuse_text"
+                android:textSize="@dimen/_px30" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 评论"
-                android:textColor="@color/shadow" />
-
-            <TextView
-                android:id="@+id/tv_read"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="10px"
-                android:text="@{DataBean.inforBean.infor_lookNum}"
-                android:textColor="@color/shadow" />
+                android:text="@{DataBean.infor_com_num}"
+                android:textColor="@color/reuse_text"
+                android:textSize="@dimen/_px30" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 阅读"
-                android:textColor="@color/shadow" />
+                android:layout_gravity="center"
+                android:text="评论"
+                android:textColor="@color/reuse_text"
+                android:textSize="@dimen/_px30" />
+
 
             <TextView
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="10px"
-                android:text="@{DataBean.work_time}"
-                android:textColor="@color/shadow" />
+                android:text="@{DataBean.infor_time}"
+                android:textColor="@color/reuse_text"
+                android:textSize="@dimen/_px30" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_no_interest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20px"
+                    android:src="@mipmap/nointerest" />
+            </RelativeLayout>
+
         </LinearLayout>
 
         <View
-            style="@style/view_line"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="15px"></View>
+            android:layout_marginTop="30px"
+            style="@style/view_line"></View>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 </layout>

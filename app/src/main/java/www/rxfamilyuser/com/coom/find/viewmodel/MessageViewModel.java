@@ -3,9 +3,7 @@ package www.rxfamilyuser.com.coom.find.viewmodel;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableInt;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import www.rxfamilyuser.com.R;
 import www.rxfamilyuser.com.base.BaseModel;
@@ -22,6 +20,7 @@ public class MessageViewModel extends BaseModel<FragmentMessageBinding, MessageC
     public List<MessageBean.DataBean> mDataList = new ObservableArrayList<>();
     public MessageAdapter mAdapter = new MessageAdapter();
     public ObservableInt mLayoutId = new ObservableInt(R.layout.item_message);
+
     @Override
     public void onBeforeRequest(int tag) {
 
@@ -50,8 +49,6 @@ public class MessageViewModel extends BaseModel<FragmentMessageBinding, MessageC
     }
 
     public void getMessageData() {
-        Map<String, Integer> map = new HashMap<>();
-
-        mControl.getMessageData(this, map, 1,"getMessageData");
+        mControl.getMessageData(this, 1);
     }
 }

@@ -139,7 +139,10 @@ public class AESHelperUtil {
      * @return
      */
     public static String encrypt(String content) {
-        String encrypt = encrypt(content, sPassword);
+        String encrypt = "";
+        if (content != null) {
+            encrypt = encrypt(content, sPassword);
+        }
         return encrypt;
     }
 
@@ -150,7 +153,10 @@ public class AESHelperUtil {
      * @return
      */
     public static String decrypt(String content) {
-        String decrypt = decrypt(content, sPassword);
+        String decrypt = "";
+        if (content != null) {
+            decrypt = decrypt(content, sPassword);
+        }
         return decrypt;
     }
 }

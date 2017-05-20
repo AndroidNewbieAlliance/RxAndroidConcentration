@@ -21,10 +21,12 @@
     <string name="ed_phone">请输入手机号</string>
 
 
-    <string name="rb_home">干货</string>
-    <string name="rb_live">互动</string>
+    <string name="rb_home">文章</string>
+    <string name="rb_live">猿圈</string>
+    <string name="rb_weekly">周刊</string>
     <string name="rb_center">消息</string>
     <string name="rb_mycenter">我的</string>
+
     <string name="edit_name">再次点击退出应用</string>
     <string name="comm_reply">回复</string>
     <string name="read_comm">期待您的神回复..</string>
@@ -43,12 +45,9 @@
     <string name="navigation_drawer_close">关闭侧边栏</string>
     <string name="item_home">推荐</string>
     <string name="item_more">更多</string>
+    <string name="infor">文章详情</string>
 
     <string name="onItemClickListener">点击事件没有初始化~~</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

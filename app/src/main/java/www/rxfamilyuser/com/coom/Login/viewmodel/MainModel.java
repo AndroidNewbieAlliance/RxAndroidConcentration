@@ -12,6 +12,7 @@ import www.rxfamilyuser.com.coom.circle.view.CircleFragment;
 import www.rxfamilyuser.com.coom.drycargo.view.DryCargoFragment;
 import www.rxfamilyuser.com.coom.find.view.MessageFragment;
 import www.rxfamilyuser.com.coom.personal.view.PerCenterFragment;
+import www.rxfamilyuser.com.coom.weekly.view.WeeklyFragment;
 import www.rxfamilyuser.com.databinding.ActivityMainBinding;
 
 /**
@@ -40,10 +41,9 @@ public class MainModel extends BaseModel<ActivityMainBinding, MainControlImpl> {
     public void initViewPager() {
         MainActivity mainActivity = (MainActivity) UI;
         ArrayList<Fragment> fragments = addListFragment();
-        MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(mainActivity.getSupportFragmentManager(),fragments );
+        MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(mainActivity.getSupportFragmentManager(), fragments);
         mBinder.viewPager.setAdapter(mainViewPagerAdapter);
-        mBinder.viewPager.setOffscreenPageLimit(3);
-
+        mBinder.viewPager.setOffscreenPageLimit(4);
     }
 
     /**
@@ -55,6 +55,7 @@ public class MainModel extends BaseModel<ActivityMainBinding, MainControlImpl> {
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new DryCargoFragment());
         fragments.add(new CircleFragment());
+        fragments.add(new WeeklyFragment());
         fragments.add(new MessageFragment());
         fragments.add(new PerCenterFragment());
         return fragments;

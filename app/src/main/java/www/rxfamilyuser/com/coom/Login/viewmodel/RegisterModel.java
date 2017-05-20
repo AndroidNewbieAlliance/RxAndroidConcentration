@@ -24,6 +24,8 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import www.rxfamilyuser.com.R;
 import www.rxfamilyuser.com.base.BaseModel;
+import www.rxfamilyuser.com.coom.Login.bean.FindPassWordJson;
+import www.rxfamilyuser.com.coom.Login.bean.RegisterJson;
 import www.rxfamilyuser.com.coom.Login.bean.UserBean;
 import www.rxfamilyuser.com.coom.Login.netcontrol.impl.IRegisterControlImpl;
 import www.rxfamilyuser.com.coom.Login.view.RegisterActivity;
@@ -35,7 +37,11 @@ import www.rxfamilyuser.com.util.AESHelperUtil;
  */
 
 public class RegisterModel extends BaseModel<ActivityRegisterBinding, IRegisterControlImpl> {
-    RegisterActivity activity;
+    private RegisterActivity activity;
+
+    private static String sRegisterMethodName = "register";
+    private static String sFindPassWordMethodName = "findPassWord";
+
 
     @Override
     public void onCreate() {
@@ -120,6 +126,68 @@ public class RegisterModel extends BaseModel<ActivityRegisterBinding, IRegisterC
     }
 
     /**
+     * 注册
+     */
+    public void register() {
+        String name = userNameReg();
+        String againPaw = againPassWordReg();
+        String psw = passWordReg();
+        String code = codeReg();
+        String phone = phoneReg();
+
+        if (phone == "" | code == "" | psw == "" | againPaw == "" | name == "") {
+            return;
+        }
+
+        if (!psw.equals(againPaw)) {
+            ToastUtils.showShortToast("您输入的两次密码不一致");
+            return;
+        }
+
+        //加密上传
+        phone = AESHelperUtil.encrypt(phone);
+        psw = AESHelperUtil.encrypt(psw);
+
+
+        RegisterJson registerJson = new RegisterJson();
+        registerJson.setUser_phone(phone);
+        registerJson.setUser_password(psw);
+        registerJson.setUser_code(code);
+        registerJson.setUser_name(name);
+
+        mControl.register(this, registerJson, sRegisterMethodName, 1);
+    }
+
+    /**
+     * 找回密码
+     */
+    public void findPassWord() {
+        String againPaw = againPassWordReg();
+        String psw = passWordReg();
+        String code = codeReg();
+        String phone = phoneReg();
+        if (phone == "" | code == "" | psw == "" | againPaw == "") {
+            return;
+        }
+
+        if (!psw.equals(againPaw)) {
+            ToastUtils.showShortToast("您输入的两次密码不一致");
+            return;
+        }
+
+        phone = AESHelperUtil.encrypt(phone);
+        psw = AESHelperUtil.encrypt(psw);
+        FindPassWordJson findPassWordJson = new FindPassWordJson();
+        findPassWordJson.setUser_code(code);
+        findPassWordJson.setUser_password(psw);
+        findPassWordJson.setUser_phone(phone);
+
+        mControl.findPassWord(this, findPassWordJson, sFindPassWordMethodName, 1);
+
+
+    }
+
+    /**
      * 开启动画
      */
     private void showActivityEnterAnimation() {
@@ -159,65 +227,6 @@ public class RegisterModel extends BaseModel<ActivityRegisterBinding, IRegisterC
         }
     }
 
-    /**
-     * 注册
-     */
-    public void register() {
-        String name = userNameReg();
-        String againPaw = againPassWordReg();
-        String psw = passWordReg();
-        String code = codeReg();
-        String phone = phoneReg();
-
-        if (phone == "" | code == "" | psw == "" | againPaw == "" | name == "") {
-            return;
-        }
-
-        if (!psw.equals(againPaw)) {
-            ToastUtils.showShortToast("您输入的两次密码不一致");
-            return;
-        }
-
-        //加密上传
-        phone = AESHelperUtil.encrypt(phone);
-        psw = AESHelperUtil.encrypt(psw);
-
-        Map<String, String> map = new HashMap<>();
-        map.put("user_name", name);
-        map.put("user_password", psw);
-        map.put("user_code", code);
-        map.put("user_phone", phone);
-        mControl.register(this, map, 1);
-    }
-
-    /**
-     * 找回密码
-     */
-    public void findPassWord() {
-        String againPaw = againPassWordReg();
-        String psw = passWordReg();
-        String code = codeReg();
-        String phone = phoneReg();
-        if (phone == "" | code == "" | psw == "" | againPaw == "") {
-            return;
-        }
-
-        if (!psw.equals(againPaw)) {
-            ToastUtils.showShortToast("您输入的两次密码不一致");
-            return;
-        }
-
-        phone = AESHelperUtil.encrypt(phone);
-        psw = AESHelperUtil.encrypt(psw);
-
-        Map<String, String> map = new HashMap<>();
-        map.put("user_password", psw);
-        map.put("user_code", code);
-        map.put("user_phone", phone);
-        mControl.findPassWord(this, map, 1);
-
-
-    }
 
     /**
      * 手机号验证

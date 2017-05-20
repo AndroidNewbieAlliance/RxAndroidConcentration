@@ -1,24 +1,42 @@
 package www.rxfamilyuser.com.coom.drycargo.view;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.blankj.utilcode.utils.ToastUtils;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import www.rxfamilyuser.com.R;
 import www.rxfamilyuser.com.base.BaseFragment;
+import www.rxfamilyuser.com.coom.drycargo.adapter.DryReuseAdapter;
 import www.rxfamilyuser.com.coom.drycargo.viewmodel.DryReuseModel;
 import www.rxfamilyuser.com.databinding.FragmentDryReuseBinding;
 import www.rxfamilyuser.com.util.XRecyclerviewUtis;
 import www.rxfamilyuser.com.widget.OnRecyclerViewItemClickListener;
 
+
+/**
+ * 文章首页多类型fragment
+ * <p 根据type>
+ * 修改时间:
+ * 修改内容:
+ */
 @SuppressLint("ValidFragment")
 public class DryReuseFragment extends BaseFragment<FragmentDryReuseBinding, DryReuseModel> {
+    /**
+     * 根据类型请求文章类型.
+     * 资讯:1
+     * 博客:2
+     * 问答:3
+     * 科技:4
+     * 技术:5
+     */
     private int mType = 1;
 
-    private int mPage = 10;
+    private int mPage = 1;
 
     public int getmPage() {
         return mPage;
@@ -66,38 +84,28 @@ public class DryReuseFragment extends BaseFragment<FragmentDryReuseBinding, DryR
                     @Override
                     public void onRefresh() {
                         //网络请求
-                        mPage = 10;
+                        mPage = 1;
                         mModel.getDryData(mType, mPage);
                     }
                 });
 
-
         mModel.mReuseAdapter.setOnItemClickListener(new OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                int itemViewType = mModel.mReuseAdapter.getItemViewType(position);
-                switch (itemViewType) {
-                    case 1:
+                Intent intent = new Intent();
+                intent.setClass(getContext(), InforActivity.class);
+                intent.putExtra("infor_html", mModel.mDataList.get(position).getInfor_html());
+                intent.putExtra("infor_id",  mModel.mDataList.get(position).getInfor_id());
+                intent.putExtra("infor_type",mType);
+                startActivity(intent);
+            }
+        });
 
-                        mModel.intent2Infor(position);
-                        /* Intent intent = new Intent(getContext(), InforActivity.class);
-                        intent.putExtra("url", mModel.mDataList.get(position).getInforBean().getInfor_img());
-                        startActivity(intent);
-                       ActivityOptionsCompat options =
-                                ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
-                                        viewById, "image_animation");
-                        ActivityCompat.startActivity(getContext(), intent, options.toBundle());*/
-                        break;
-                    case 2:
-                        mModel.intent2Joke(position);
-                        break;
-                    case 3:
-                        mModel.intent2Expert(position);
-                        break;
-                    case 4:
-                        mModel.intent2Welfare(position);
-                        break;
-                }
+        //不感兴趣点击
+        mModel.mReuseAdapter.setOnivNoInterestClickListener(new DryReuseAdapter.OnivNoInterestClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                ToastUtils.showShortToast("当前下标" + position);
             }
         });
     }

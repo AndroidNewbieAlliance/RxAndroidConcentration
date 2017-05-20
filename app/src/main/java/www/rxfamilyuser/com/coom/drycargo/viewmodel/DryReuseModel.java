@@ -1,61 +1,38 @@
 package www.rxfamilyuser.com.coom.drycargo.viewmodel;
 
-import android.content.Intent;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableInt;
 
 import com.blankj.utilcode.utils.ToastUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import www.rxfamilyuser.com.R;
 import www.rxfamilyuser.com.base.BaseModel;
 import www.rxfamilyuser.com.coom.drycargo.adapter.DryReuseAdapter;
-import www.rxfamilyuser.com.coom.drycargo.bean.HomeBean;
+import www.rxfamilyuser.com.coom.drycargo.bean.DryReuseBean;
+import www.rxfamilyuser.com.coom.drycargo.bean.DryReuseJson;
 import www.rxfamilyuser.com.coom.drycargo.netcontrol.impl.DryReuseControlImpl;
-import www.rxfamilyuser.com.coom.drycargo.view.DanielDetailsActivity;
 import www.rxfamilyuser.com.coom.drycargo.view.DryReuseFragment;
-import www.rxfamilyuser.com.coom.drycargo.view.InforActivity;
-import www.rxfamilyuser.com.coom.drycargo.view.JokeAvtivity;
-import www.rxfamilyuser.com.coom.drycargo.view.LargeActivity;
 import www.rxfamilyuser.com.databinding.FragmentDryReuseBinding;
+import www.rxfamilyuser.com.util.PhoneUtil;
+import www.rxfamilyuser.com.util.UserUtil;
 
 /**
  * Created by ali on 2017/3/2.
  */
 
 public class DryReuseModel extends BaseModel<FragmentDryReuseBinding, DryReuseControlImpl> {
-    public ObservableArrayList<HomeBean.DataBean> mDataList = new ObservableArrayList();
+    public ObservableArrayList<DryReuseBean.DataBean> mDataList = new ObservableArrayList();
     public ObservableInt mLayoutId = new ObservableInt(R.layout.reuse_item);
     public DryReuseAdapter mReuseAdapter = new DryReuseAdapter();
 
     private DryReuseFragment dryReuseFragment;
+    private static String sDRY_DATA = "articleAll";
 
     @Override
     public void onCreate() {
         super.onCreate();
         dryReuseFragment = (DryReuseFragment) UI;
 
-      /*  mReuseAdapter.setOnItemClickListener(new OnRecyclerViewItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                int itemViewType = mReuseAdapter.getItemViewType(position);
-                switch (itemViewType) {
-                    case 1:
-                        Intent intent = new Intent(getContent(), InforActivity.class);
-                        intent.putExtra("url", mDataList.get(position).getInforBean().getInfor_img());
-                        ActivityOptionsCompat options =
-                                ActivityOptionsCompat.makeSceneTransitionAnimation(dryReuseFragment.getActivity(),
-                                        view.findViewById(R.id.iv_photo), "image_animation");
-                        ActivityCompat.startActivity(getContent(), intent, options.toBundle());
-                        String name = Thread.currentThread().getName();
-                        ToastUtils.showShortToast(name);
-                        break;
-                }
-                ToastUtils.showShortToast("点击了");
-            }
-        });*/
     }
 
     @Override
@@ -65,15 +42,15 @@ public class DryReuseModel extends BaseModel<FragmentDryReuseBinding, DryReuseCo
 
     @Override
     public void onSuccess(Object bean, int tag) {
-        HomeBean homeBean = (HomeBean) bean;
+        DryReuseBean homeBean = (DryReuseBean) bean;
         if (homeBean.getCode() == 1) {
             mDataList.clear();
             mDataList.addAll(homeBean.getData());
 
         } else {
             ToastUtils.showShortToast(homeBean.getMessage());
-//            mBinder.xrView.setEmptyView(mNotWorkView);
         }
+
         mReuseAdapter.notifyDataSetChanged();
         mBinder.xrView.loadMoreComplete();
         mBinder.srLayout.setRefreshing(false);
@@ -81,8 +58,6 @@ public class DryReuseModel extends BaseModel<FragmentDryReuseBinding, DryReuseCo
 
     @Override
     public void onError(String errorMsg) {
-//        mBinder.frg.addView(mNotWorkView);
-//        mBinder.xrView.setEmptyView(mNotWorkView);
 
         mBinder.xrView.loadMoreComplete();
         mBinder.srLayout.setRefreshing(false);
@@ -95,54 +70,13 @@ public class DryReuseModel extends BaseModel<FragmentDryReuseBinding, DryReuseCo
      * @param page 页数
      */
     public void getDryData(int type, int page) {
-        Map<String, Integer> map = new HashMap<>();
-        map.put("type", type);
-        map.put("page", page);
-        mControl.getDryData(this, map, 1,"infor");
+
+        DryReuseJson dryReuseJson = new DryReuseJson();
+        dryReuseJson.setUserId(UserUtil.getUserId());
+        dryReuseJson.setPhoneDDIV(PhoneUtil.getPhoneDeviceId(dryReuseFragment.getActivity()));
+        dryReuseJson.setType(type);
+        dryReuseJson.setPage(page);
+        mControl.getDryData(this, dryReuseJson, 1, sDRY_DATA);
     }
 
-    /**
-     * 跳转到资讯详情
-     *
-     * @param position
-     */
-    public void intent2Infor(int position) {
-        Intent intent = new Intent();
-        intent.setClass(getContent(), InforActivity.class);
-        intent.putExtra("infor_html", mDataList.get(position).getInforBean().getInfor_html());
-        intent.putExtra("infor_id", mDataList.get(position).getInforBean().getInfor_id());
-        intent.putExtra("title", mDataList.get(position).getInforBean().getInfor_title());
-        getContent().startActivity(intent);
-    }
-
-    /**
-     * 跳转到笑话
-     */
-    public void intent2Joke(int position) {
-        Intent intent = new Intent();
-        intent.setClass(getContent(), JokeAvtivity.class);
-        intent.putExtra("jokeId",mDataList.get(position).getJokeBean().getJoke_id());
-        getContent().startActivity(intent);
-    }
-
-    /**
-     * 跳转到专家详情
-     */
-    public void intent2Expert(int position) {
-        Intent intent = new Intent();
-        intent.setClass(getContent(), DanielDetailsActivity.class);
-        intent.putExtra("exerptId", mDataList.get(position).getExpertBean().getExpert_id());
-        getContent().startActivity(intent);
-
-    }
-
-    /**
-     * 跳转到福利
-     */
-    public void intent2Welfare(int position) {
-        Intent intent = new Intent();
-        intent.setClass(getContent(), LargeActivity.class);
-        intent.putExtra("url", mDataList.get(position).getWelfareBean().getWelfare_img());
-        getContent().startActivity(intent);
-    }
 }

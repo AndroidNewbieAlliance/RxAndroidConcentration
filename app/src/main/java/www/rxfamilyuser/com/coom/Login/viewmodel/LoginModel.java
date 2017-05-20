@@ -9,10 +9,8 @@ import com.blankj.utilcode.utils.SPUtils;
 import com.blankj.utilcode.utils.StringUtils;
 import com.blankj.utilcode.utils.ToastUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import www.rxfamilyuser.com.base.BaseModel;
+import www.rxfamilyuser.com.coom.Login.bean.LoginJson;
 import www.rxfamilyuser.com.coom.Login.bean.UserBean;
 import www.rxfamilyuser.com.coom.Login.netcontrol.impl.ILoginControlImpl;
 import www.rxfamilyuser.com.coom.Login.view.LoginActivity;
@@ -28,6 +26,7 @@ import www.rxfamilyuser.com.util.SPkeyConstantUtil;
 
 public class LoginModel extends BaseModel<ActivityLoginBinding, ILoginControlImpl> {
 
+    private static String sLoinMethodName = "login";
 
     @Override
     public void onBeforeRequest(int tag) {
@@ -101,10 +100,11 @@ public class LoginModel extends BaseModel<ActivityLoginBinding, ILoginControlImp
         phone = AESHelperUtil.encrypt(phone);
         passWord = AESHelperUtil.encrypt(passWord);
 
-        Map<String, String> map = new HashMap<>();
-        map.put("user_phone", phone);
-        map.put("user_password", passWord);
-        mControl.login(this, map, 1);
+        LoginJson loginJson = new LoginJson();
+        loginJson.setUser_password(passWord);
+        loginJson.setUser_phone(phone);
+
+        mControl.login(this, loginJson,sLoinMethodName, 1);
     }
 
     /**

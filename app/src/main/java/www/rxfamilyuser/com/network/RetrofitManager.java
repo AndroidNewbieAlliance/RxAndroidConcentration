@@ -35,7 +35,7 @@ public class RetrofitManager {
 
     static {
         if (DebugMode) {
-            HTTP_URL = "http://192.168.1.109:8080/";
+            HTTP_URL = "http://192.168.1.101:8080/";
         } else {
             HTTP_URL = "http://47.93.50.208:8080/www.concentration.com/";
         }
